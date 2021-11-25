@@ -1,1 +1,2 @@
 # public packages (see setup.py)
+numpy>=1.21.4,<2

@@ -28,7 +28,9 @@ setuptools.setup(
     author_email='554c46@gmail.com',
     license='Apache License 2.0',
     packages=['ipasymbols'],
-    install_requires=[],
+    install_requires=[
+        'numpy>=1.21.4,<2'
+    ],
     python_requires='>=3.6',
     zip_safe=True
 )

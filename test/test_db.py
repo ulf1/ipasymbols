@@ -4,8 +4,8 @@ import html
 
 def test1():
     for key, val in ipasymbols.db.items():
-        if key not in ['\u027F', '\u0285']:
-            assert key == val['glyph']
+        # if key not in ['\u027F', '\u0285']:
+        assert key == val['glyph']
 
 
 def test2():

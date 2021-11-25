@@ -6,21 +6,26 @@
 # ipasymbols
 A simple JSON database to lookup the properties of IPA symbols.
 
+## Warning: Under Development! (25.Nov.2021)
+Version `0.0.*` is **not** ready to use. Non-Pulmonic consonants, affricates, co-articulated consonants, and dipthongs are **not** implemented yet. This kind of software is very prone to human errors, and required unit tests are not implemented so far.
+
 ## Usage
 
 ### Get lists of IPA phons
 ```py
 import ipasymbols
 
-# 1 char vowels
-vowels = ipasymbols.get(query={'type': 'vowel'})
-front_vowels = ipasymbols.get(query={'type': 'vowel', 'backness': 'front'})
+# all vowels
+all_vowels = ipasymbols.phonlist(query={'type': 'vowel'})
+
+# front vowels
+front_vowels = ipasymbols.phonlist(query={'type': 'vowel', 'backness': 'front'})
 
 # diphthongs (2 char vowels)
-diphthongs = ipasymbols.get(query={'type': 'diphthong'})
+diphthongs = ipasymbols.phonlist(query={'type': 'diphthong'})
 
 # different types of consonants
-consonants = ipasymbols.get(query={'type': ["pulmonic", "non-pulmonic"]})
+consonants = ipasymbols.phonlist(query={'type': ["pulmonic", "non-pulmonic"]})
 # consonants = ['m̥', 'm', 'ɱ', 'n̼', ...]
 ```
 
@@ -31,6 +36,21 @@ import ipasymbols
 phon = 'ɪ'
 props = ipasymbols.props(phon=phon, keys=["height"])
 # props = {'height': 'near-close'}
+```
+
+
+### Count certain kinds of IPA symbols
+```py
+import ipasymbols
+ipatext = "de:ɐ̯ kɔʊd ɪst fɔl blø:t abɐ aʊ̯x tɔl"
+# vowels
+all_vowels = ipasymbols.count(ipatext, query={'type': 'vowel'})
+# front vowels
+front_vowels = ipasymbols.count(ipatext, query={'type': 'vowel', 'backness': 'front'})
+# diphthongs (2 char vowels)
+diphthongs = ipasymbols.count(ipatext, query={'type': 'diphthong'})
+# different types of consonants
+consonants = ipasymbols.count(ipatext, query={'type': ["pulmonic", "non-pulmonic"]})
 ```
 
 
