@@ -99,7 +99,7 @@ pip install -r requirements-demo.txt --no-cache-dir
 ### Python commands
 
 * Jupyter for the examples: `jupyter lab`
-* Check syntax: `flake8 --ignore=F401 --exclude=$(grep -v '^#' .gitignore | xargs | sed -e 's/ /,/g')`
+* Check syntax: `flake8 --ignore=F401 --exclude=$(grep -v '^#' .gitignore | xargs | sed -e 's/ /,/g'),./ipasymbols/ipasymbols.py`
 * Run Unit Tests: `PYTHONPATH=. pytest`
 
 Publish

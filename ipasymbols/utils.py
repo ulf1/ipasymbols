@@ -5,7 +5,7 @@ import numpy as np
 
 def phonlist(query: dict) -> List[str]:
     """ Get Phon List """
-    query_ = {key: val if isinstance(val, (tuple, list)) else [val] 
+    query_ = {key: val if isinstance(val, (tuple, list)) else [val]
               for key, val in query.items()}
     return [phon for phon, props in db.items()
             if all([props.get(key) in val for key, val in query_.items()])]
@@ -14,12 +14,12 @@ def phonlist(query: dict) -> List[str]:
 def props(phon, keys) -> dict:
     """ Get certain data fields """
     try:
-        return {k:v for k, v in db[phon].items() if k in keys}
-    except:
+        return {k: v for k, v in db[phon].items() if k in keys}
+    except Exception:
         return {}
 
 
-def count(ipatext: str, query: dict, phonlen: int=3) -> int:
+def count(ipatext: str, query: dict, phonlen: int = 3) -> int:
     """
     Parameters:
     -----------
@@ -48,15 +48,15 @@ def count(ipatext: str, query: dict, phonlen: int=3) -> int:
     phons = phonlist(query)
     hits = 0
     for k in range(1, phonlen + 1):
-        hits += sum([ipatext[i:i+k] in phons 
+        hits += sum([ipatext[i:i + k] in phons
                      for i in range(len(ipatext) - k + 1)])
     return hits
 
 
 def count_clusters(ipatext: str,
-                   query: dict = ["pulmonic", "non-pulmonic", 
+                   query: dict = ["pulmonic", "non-pulmonic",
                                   "affricate", "co-articulated"],
-                   phonlen: int=3,
+                   phonlen: int = 3,
                    min_cluster_len: int = 2) -> dict:
     """Identify and count clusters, e.g. consonant clusters
 
@@ -81,16 +81,16 @@ def count_clusters(ipatext: str,
     Example:
     --------
     ipatext = "diː bœʀsən-yːʊpiːs uːmɭ̊˔ ɡɔʀdoːn ɡɛkkoː tʀɑːɡ"
-    numclusters = count_consonant_clusters(ipatext, phonlen=3, min_cluster_len=2)
+    numclusters = count_clusters(ipatext, phonlen=3, min_cluster_len=2)
     numclusters
     """
     # filter phons from ipasymbols.db list
     phons = phonlist(query)
 
     # mark string position if an IPA consonant starts there
-    matches = np.zeros((len(ipatext),), dtype=bool)  # Vector with only 0s and 1s
+    matches = np.zeros((len(ipatext), ), dtype=bool)
     for k in range(1, phonlen + 1):
-        tmp = [ipatext[i:i+k] in phons for i in range(len(ipatext) - k + 1)]
+        tmp = [ipatext[i:i + k] in phons for i in range(len(ipatext) - k + 1)]
         tmp += [False for _ in range(k - 1)]  # pad missing elements at the end
         matches = np.logical_or(matches, tmp)
 

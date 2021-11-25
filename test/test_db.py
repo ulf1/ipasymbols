@@ -61,7 +61,8 @@ def test_height3():
 
 
 def test_height4():
-    vowels = ['\u0065\u031E', '\u00F8\u031E', '\u0259', '\u0264\u031E', '\u006F\u031E']
+    vowels = ['\u0065\u031E', '\u00F8\u031E', '\u0259', '\u0264\u031E',
+              '\u006F\u031E']
     for key, val in ipasymbols.db.items():
         if val.get('type') == "vowel" and val.get('height') == "mid":
             if key in vowels:
