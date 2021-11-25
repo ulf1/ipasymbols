@@ -1,10 +1,31 @@
 import ipasymbols
+import html
+
 
 def test1():
     for key, val in ipasymbols.db.items():
         if key not in ['\u027F', '\u0285']:
-            # print(key, val['glyph'])
             assert key == val['glyph']
+
+
+def test2():
+    for key, val in ipasymbols.db.items():
+        if val.get("html"):
+            assert key == html.unescape(val.get("html"))
+
+
+def test_vowels1():
+    for key, val in ipasymbols.db.items():
+        if val.get('type') == "vowel":
+            desc = val.get('ipa-description')
+            if desc:
+                desc = desc.lower()
+                assert val.get("type") in desc
+                assert val.get("backness") in desc
+                assert val.get("height") in desc
+                if val.get("roundedness"):
+                    assert val.get("roundedness") in desc
+
 
 def test_height1():
     vowels = ['\u0069', '\u0079', '\u0268', '\u0289', '\u026F', '\u0075']
