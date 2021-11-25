@@ -3,12 +3,12 @@
     "name": "Ulf Hamster",
     "orcid": "0000-0002-0440-4868"
   }],
-  "title": "template_pypi: Lorem Ipsum",
-  "description": "Lorem Ipsum.",
+  "title": "ipasymbols: Properties of IPA symbols for data analysis.",
+  "description": "The python packages contains a JSON-based (dict) database of IPA symbols and its properties (e.g. backness, height, manner, place) and utility functions for data analysis and feature engineering (e.g. count consonant clusters).",
   "license": "Apache-2.0",
   "upload_type": "software",
   "keywords": [
-    "keyword 1",
-    "keyword 2"
+    "IPA", "International Phonetic Alphabet",
+    "phon", "phonetics"
   ]
 }
