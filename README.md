@@ -1,55 +1,73 @@
-[![PyPI version](https://badge.fury.io/py/template_pypi.svg)](https://badge.fury.io/py/template_pypi)
+[![PyPI version](https://badge.fury.io/py/ipasymbols.svg)](https://badge.fury.io/py/ipasymbols)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4284804.svg)](https://doi.org/10.5281/zenodo.4284804)
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/myorg/template_pypi/master?urlpath=lab)
-[![Gitpod - Code Now](https://img.shields.io/badge/Gitpod-code%20now-blue.svg?longCache=true)](https://gitpod.io#https://github.com/myorg/template_pypi)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/myorg/template_pypi.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/myorg/template_pypi/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/myorg/template_pypi.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/myorg/template_pypi/context:python)
-[![template_pypi](https://snyk.io/advisor/python/template_pypi/badge.svg)](https://snyk.io/advisor/python/template_pypi)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/linguistik/ipasymbols.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/linguistik/ipasymbols/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/linguistik/ipasymbols.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/linguistik/ipasymbols/context:python)
+[![ipasymbols](https://snyk.io/advisor/python/ipasymbols/badge.svg)](https://snyk.io/advisor/python/ipasymbols)
 
-# template_pypi
-
-## DELETE THIS LATER 
-Download template_pypi and rename it
-
-```
-git clone git@github.com:kmedian/template_pypi.git mycoolpkg
-cd mycoolpkg
-bash rename.sh "myorg" "mycoolpkg" "Real Name"
-```
-
-Reinitialize the repo:
-
-```
-rm -rf .git
-git init
-git remote add origin git@github.com:myorg/mycoolpkg.git
-```
-
+# ipasymbols
+A simple JSON database to lookup the properties of IPA symbols.
 
 ## Usage
 
-Table of Contents
+### Get lists of IPA phons
+```py
+import ipasymbols
 
-* [Use Case 1](#use-case-1)
+# 1 char vowels
+vowels = ipasymbols.get(query={'type': 'vowel'})
+front_vowels = ipasymbols.get(query={'type': 'vowel', 'backness': 'front'})
+
+# diphthongs (2 char vowels)
+diphthongs = ipasymbols.get(query={'type': 'diphthong'})
+
+# different types of consonants
+consonants = ipasymbols.get(query={'type': ["pulmonic", "non-pulmonic"]})
+# consonants = ['m̥', 'm', 'ɱ', 'n̼', ...]
+```
 
 
-### Use Case 1
+### Get properties of an IPA phon
+```py
+import ipasymbols
+phon = 'ɪ'
+props = ipasymbols.props(phon=phon, keys=["height"])
+# props = {'height': 'near-close'}
+```
+
+
+### Count consonant clusters
+```py
+import ipasymbols
+ipatext = "de:ɐ̯ kɔʊd ɪst fɔl blø:t abɐ aʊ̯x tɔl"
+types = ["pulmonic", "non-pulmonic", "affricate", "co-articulated"]
+clusters = ipasymbols.count_clusters(
+    ipatext, query={"type": types}, phonlen=3, min_cluster_len=2)
+# clusters = {2: 789, 3: 654, 4: 123, ...}
+```
+
+
+### Read the whole IPA symbols database
+
+```py
+import ipasymbols
+mydict = ipasymbols.db
+```
 
 
 ## Appendix
 
 ### Installation
-The `template_pypi` [git repo](http://github.com/myorg/template_pypi) is available as [PyPi package](https://pypi.org/project/template_pypi)
+The `ipasymbols` [git repo](http://github.com/linguistik/ipasymbols) is available as [PyPi package](https://pypi.org/project/ipasymbols)
 
 ```sh
-pip install template_pypi
-pip install git+ssh://git@github.com/myorg/template_pypi.git
+pip install ipasymbols
+pip install git+ssh://git@github.com/linguistik/ipasymbols.git
 ```
 
 ### Install a virtual environment
 
 ```sh
-python3.6 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt --no-cache-dir
@@ -84,8 +102,8 @@ rm -r .venv
 
 
 ### Support
-Please [open an issue](https://github.com/myorg/template_pypi/issues/new) for support.
+Please [open an issue](https://github.com/linguistik/ipasymbols/issues/new) for support.
 
 
 ### Contributing
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/myorg/template_pypi/compare/).
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/linguistik/ipasymbols/compare/).
