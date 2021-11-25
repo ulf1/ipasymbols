@@ -1,8 +1,7 @@
 [![PyPI version](https://badge.fury.io/py/ipasymbols.svg)](https://badge.fury.io/py/ipasymbols)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4284804.svg)](https://doi.org/10.5281/zenodo.4284804)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/linguistik/ipasymbols.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/linguistik/ipasymbols/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/linguistik/ipasymbols.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/linguistik/ipasymbols/context:python)
-[![ipasymbols](https://snyk.io/advisor/python/ipasymbols/badge.svg)](https://snyk.io/advisor/python/ipasymbols)
+
 
 # ipasymbols
 A simple JSON database to lookup the properties of IPA symbols.
