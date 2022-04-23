@@ -1,4 +1,5 @@
 [![PyPI version](https://badge.fury.io/py/ipasymbols.svg)](https://badge.fury.io/py/ipasymbols)
+[![PyPi downloads](https://img.shields.io/pypi/dm/ipasymbols)](https://img.shields.io/pypi/dm/ipasymbols)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/linguistik/ipasymbols.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/linguistik/ipasymbols/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/linguistik/ipasymbols.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/linguistik/ipasymbols/context:python)
 
