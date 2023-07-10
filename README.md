@@ -1,6 +1,6 @@
-[![DOI](https://zenodo.org/badge/431771809.svg)](https://zenodo.org/badge/latestdoi/431771809)
 [![PyPI version](https://badge.fury.io/py/ipasymbols.svg)](https://badge.fury.io/py/ipasymbols)
 [![PyPi downloads](https://img.shields.io/pypi/dm/ipasymbols)](https://img.shields.io/pypi/dm/ipasymbols)
+[![DOI](https://zenodo.org/badge/431771809.svg)](https://zenodo.org/badge/latestdoi/431771809)
 
 
 # ipasymbols: Properties of IPA symbols for data analysis
