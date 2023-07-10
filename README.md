@@ -3,7 +3,7 @@
 [![PyPi downloads](https://img.shields.io/pypi/dm/ipasymbols)](https://img.shields.io/pypi/dm/ipasymbols)
 
 
-# ipasymbols
+# ipasymbols: Properties of IPA symbols for data analysis
 A simple JSON database to lookup the properties of IPA symbols.
 
 ## Warning: Under Development! (25.Nov.2021)
